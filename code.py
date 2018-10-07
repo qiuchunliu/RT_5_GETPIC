@@ -9,6 +9,7 @@ html = ht.text
 htmls = BeautifulSoup(html, 'html.parser')
 img = htmls.find_all('img')
 n = 0
+# 要把gif 和 jpg 区分开来
 for i in img:
     img_url = i.attrs['src']
     img = requests.get('http:' + img_url).content
@@ -19,4 +20,3 @@ for i in img:
         with open(r'C:\Users\chunliu\Desktop\qw\%s.gif' % (str(n)+'g'), 'wb') as f:
             f.write(img)
     n += 1
-    # print(i.attrs['src'])
